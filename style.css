@@ -139,7 +139,7 @@ body {
   counter-increment: sense;
   padding-left: 2rem;
   position: relative;
-  margin-bottom: var(--space-l);
+  margin-bottom: var(--space-xl);
 }
 
 .senses li::before {
@@ -158,7 +158,7 @@ body {
 .etymology {
   color: var(--text-secondary);
   font-style: italic;
-  margin-top: var(--space-xl);
+  margin-top: var(--space-xxl);
 }
 
 /* ---- sections ---- */
@@ -172,10 +172,10 @@ hr.hairline {
 h2 {
   font-size: 1.375rem; /* Content/Title 22 */
   font-weight: 500;
-  margin-bottom: var(--space-l);
+  margin-bottom: var(--space-xl);
 }
 
-p + p { margin-top: var(--space-l); }
+p + p { margin-top: var(--space-xl); }
 
 a {
   color: var(--accent);
@@ -194,21 +194,23 @@ a:hover { color: var(--accent-pressed); }
 
 .qa dt {
   font-weight: 600;
-  margin-top: var(--space-xl);
+  margin-top: var(--space-xxl);
 }
 
 .qa dt:first-child { margin-top: 0; }
 
-.qa dd { margin-top: var(--space-xs); }
+.qa dd { margin-top: var(--space-s); }
 
 /* ---- inset panel (the app's recessed example block) ---- */
 
 .inset {
   background: var(--inset);
   border-radius: var(--radius-small);
-  padding: var(--space-l) var(--space-xl);
-  margin-block: var(--space-xl);
+  padding: var(--space-xl);
+  margin-block: var(--space-xxl);
 }
+
+.inset p + p { margin-top: var(--space-m); }
 
 /* ---- policy pages ---- */
 
@@ -225,10 +227,11 @@ a:hover { color: var(--accent-pressed); }
   margin-top: var(--space-s);
 }
 
-.policy h2 { margin-top: var(--space-xxl); }
+.policy h2 { margin-top: 3rem; }
 
-.policy ul, .policy ol { padding-left: 1.25rem; }
-.policy li { margin-top: var(--space-s); }
+.policy ul, .policy ol { padding-left: 1.25rem; margin-top: var(--space-xl); }
+.policy li { margin-top: var(--space-l); }
+.policy ol + p, .policy ul + p { margin-top: var(--space-xl); }
 
 /* ---- footer ---- */
 
