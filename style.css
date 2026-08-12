@@ -1,0 +1,250 @@
+/* Diction — support site.
+   Tokens mirror the Diction Design System (Figma) via DesignTokens.swift.
+   Content voice: ui-serif (New York on Apple devices). Chrome voice: system sans. */
+
+:root {
+  color-scheme: light dark;
+
+  /* color/* */
+  --canvas: #F7F4EC;
+  --elevated: #FFFDF7;
+  --inset: #EFEAE0;
+  --text-primary: #2B2A26;
+  --text-secondary: #6B6862;
+  --text-tertiary: #8F8B80;
+  --hairline: #E4DECF;
+  --accent: #3A5A8C;
+  --accent-pressed: #2E4870;
+  --discard: #C0392B;
+  --store: #3B8C5A;
+
+  /* type */
+  --serif: ui-serif, "New York", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, ui-sans-serif, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  /* space */
+  --space-xs: 0.25rem;
+  --space-s: 0.5rem;
+  --space-m: 0.75rem;
+  --space-l: 1rem;
+  --space-xl: 1.5rem;
+  --space-xxl: 2rem;
+
+  /* radius */
+  --radius-small: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --canvas: #14130F;
+    --elevated: #201E18;
+    --inset: #0E0D0A;
+    --text-primary: #EFEAE0;
+    --text-secondary: #A8A296;
+    --text-tertiary: #6B6862;
+    --hairline: #35322A;
+    --accent: #9DB4D9;
+    --accent-pressed: #7B97C4;
+    --discard: #E0685A;
+    --store: #7CC29A;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  background: var(--canvas);
+  color: var(--text-primary);
+  font-family: var(--serif);
+  font-size: 1.0625rem; /* Content/Body 17 */
+  line-height: 1.65;
+}
+
+.page {
+  max-width: 33rem;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-xl) var(--space-xxl);
+}
+
+/* ---- chrome ---- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  padding-block: var(--space-l);
+  margin-bottom: clamp(2rem, 8vw, 4rem);
+  font-family: var(--sans);
+  font-size: 0.8125rem; /* UI/Caption 13 */
+}
+
+.topbar img {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  display: block;
+}
+
+.topbar .wordmark {
+  color: var(--text-secondary);
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+
+.topbar nav {
+  margin-left: auto;
+}
+
+.topbar nav a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.topbar nav a:hover { color: var(--accent-pressed); text-decoration: underline; }
+
+/* ---- the entry ---- */
+
+.headword {
+  font-size: clamp(2.375rem, 9vw, 3.25rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.entry-meta {
+  margin-top: var(--space-s);
+  color: var(--text-secondary);
+}
+
+.entry-meta .pron { font-style: normal; }
+.entry-meta .pos { font-style: italic; }
+
+.rule {
+  width: 56px;
+  height: 4px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  margin: var(--space-xl) 0;
+}
+
+.senses {
+  list-style: none;
+  counter-reset: sense;
+}
+
+.senses li {
+  counter-increment: sense;
+  padding-left: 2rem;
+  position: relative;
+  margin-bottom: var(--space-l);
+}
+
+.senses li::before {
+  content: counter(sense);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-variant-numeric: lining-nums;
+}
+
+.keep { color: var(--store); }
+.let-go { color: var(--discard); }
+
+.etymology {
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: var(--space-xl);
+}
+
+/* ---- sections ---- */
+
+hr.hairline {
+  border: 0;
+  border-top: 1px solid var(--hairline);
+  margin: clamp(2.5rem, 8vw, 3.5rem) 0;
+}
+
+h2 {
+  font-size: 1.375rem; /* Content/Title 22 */
+  font-weight: 500;
+  margin-bottom: var(--space-l);
+}
+
+p + p { margin-top: var(--space-l); }
+
+a {
+  color: var(--accent);
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--accent-pressed); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---- questions (usage notes) ---- */
+
+.qa dt {
+  font-weight: 600;
+  margin-top: var(--space-xl);
+}
+
+.qa dt:first-child { margin-top: 0; }
+
+.qa dd { margin-top: var(--space-xs); }
+
+/* ---- inset panel (the app's recessed example block) ---- */
+
+.inset {
+  background: var(--inset);
+  border-radius: var(--radius-small);
+  padding: var(--space-l) var(--space-xl);
+  margin-block: var(--space-xl);
+}
+
+/* ---- policy pages ---- */
+
+.policy h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.policy .effective {
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  color: var(--text-tertiary);
+  margin-top: var(--space-s);
+}
+
+.policy h2 { margin-top: var(--space-xxl); }
+
+.policy ul, .policy ol { padding-left: 1.25rem; }
+.policy li { margin-top: var(--space-s); }
+
+/* ---- footer ---- */
+
+footer {
+  margin-top: clamp(3rem, 10vw, 5rem);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--hairline);
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  color: var(--text-tertiary);
+  line-height: 2;
+}
+
+footer a { color: var(--text-secondary); }
+footer a:hover { color: var(--accent); }
+
+@media print {
+  .topbar nav, footer { display: none; }
+}
